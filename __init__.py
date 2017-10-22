@@ -7,7 +7,6 @@ from time import sleep
 class SessionX(Session):
 	PARSER = 'html.parser'
 	def _soup(self, content, **kwargs):
-		print(kwargs)
 		return BeautifulSoup(content, self.PARSER, **kwargs)
 		
 	def soup(self, content, **kwargs):
