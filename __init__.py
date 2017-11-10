@@ -28,7 +28,9 @@ class Bro(SessionX):
 	def request(self, url, method, **kwargs):
 		req = super().request(url, method, **kwargs)
 		if not req.ok:
+			print('Request was not successful retrying after 5 seconds!')
 			sleep(5)
+			return self.request(url, method, **kwargs)
 		return req
 
 class MobBro(Bro):
